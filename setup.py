@@ -188,8 +188,8 @@ if is_jython or is_pypy or is_py3k or is_win:
 elif find_make():
     try:
         librabbitmq_ext, build = create_builder()
-    except Exception, exc:
-        print('Could not create builder: %r' % (exc, ))
+    except Exception:
+        print('Could not create builder: %r' % (sys.exc_info()[1].args[0], ))
         raise
     else:
         goahead = True
